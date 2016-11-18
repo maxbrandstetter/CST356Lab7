@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Lab_2.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="well">
+    <h2>Index</h2>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-primary" })
+
+</p>
+<table class="table table-hover table-striped table-bordered" id="userTable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfSiblings)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="userRow @(@item.LastName.StartsWith("S") ? "success" : "")">
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td class="email">
+            @Html.DisplayFor(modelItem => item.EmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfSiblings)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", null, new { id = item.UserId }, htmlAttributes: new { @class = "btn btn-primary btn-xs" }) |
+            @Html.ActionLink("Details", "Details", null, new { id = item.UserId }, htmlAttributes: new { @class = "btn btn-primary btn-xs" }) |
+            @Html.ActionLink("Delete", "Delete", null, new { id = item.UserId }, htmlAttributes: new { @class = "btn btn-primary btn-xs" })
+        </td>
+    </tr>
+}
+</table>
+
+<div>
+    <button class="btn btn-info" id="show">Show</button>
+    <button class="btn btn-info" id="hide">Hide</button>
+</div>
+
+<br />
+<br />
+
+<div id="jQueryOutput">
+</div>
+
+<br />
+<br />
+
+@if (Model.Count() > 2)
+{
+    <div class="alert alert-info">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        Number of elements exceeds 2
+    </div>
+}
+
+@section scripts
+{
+    <script>
+        $(function () {
+            $("#show").click(function () {
+                $("#userTable").show();
+            });
+
+            $("#hide").click(function () {
+                $("#userTable").hide();
+            });
+
+            $("#userTable tr.userRow").click(function () {
+                var value = $(this).find('.email').text().trim();
+                $("#jQueryOutput").text(value);
+            });
+        });
+    </script>
+}

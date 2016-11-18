@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron text-center">
+    <h1>My First Bootstrap Page</h1>
+    <p>Resize this responsive page to see the effect!</p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <h3>Column 1 <mark>(ANSWERS HERE)</mark></h3>
+            <p>The <code>page layout</code> is a large, centered, title box followed by 3 columns of text (with headers).</p>
+            <p>As I resize the page, the elements also resize.  If the page becomes too small though, the columns end up as rows.</p>
+            <p>The jumbotron text-center class creates the title box mentioned earlier with centered text.  The container class creates responsive fixed width content.  The row class is part of bootstrap grids, and creates a row.  Each subsequent col-sm-4 class creates a 4 column span (bootstrap grids allow 12 columns across a page, so the 3 instances create 3 equally sized columns).  The sm part is merely 1 of 4 identifiers for differently sized displays (phone, tablet, desktop, etc.).</p>
+        </div>
+        <div class="col-sm-4">
+            <h3>Column 2</h3>
+            <p class="text-danger">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        </div>
+        <div class="col-sm-4">
+            <h3>Column 3</h3>
+            <pre>Lorem ipsum dolor sit amet, 
+consectetur adipisicing elit...</pre>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        </div>
+    </div>
+</div>

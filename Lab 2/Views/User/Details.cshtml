@@ -1,0 +1,60 @@
+﻿@model Lab_2.Models.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfSiblings)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfSiblings)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OnlyChild)
+        </dt>
+
+        <dd>
+            @*Tried to get this to display as something other than an unmarked checkbox (using DisplayTemplates), but couldn't get it working*@
+            @Html.DisplayFor(model => model.OnlyChild)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
